@@ -306,7 +306,7 @@ exports.getCourseDetails=async(req,res)=>{
                 populate:{
                     path:"SubSection",
                 },
-            })  .exec();
+            }).exec();
          
           
 

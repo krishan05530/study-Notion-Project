@@ -75,7 +75,7 @@ message:'User not found'
      })
  }
  // user will have profile also so delete profile(additional details)
- await Profile .findByIdAndDelete({_id:userDetails.additionalDetails});
+ await Profile.findByIdAndDelete({_id:userDetails.additionalDetails});
  // then delete user
  // before deleteing it, schedule this job , so it doesnt get deleted instantly(how can be do task scheduling, crone job)
  await User.findByIdAndDelete({_id:id});

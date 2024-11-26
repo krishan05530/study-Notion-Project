@@ -3,13 +3,18 @@
 // login
 //chnagepassword
 // krishan
+
+const mailSender = require("../utils/mailSender");
+const { passwordUpdated } = require("../mail/templates/passwordUpdate");
 const User = require("../models/User")
 const OTP = require("../models/OTP")
 const Profile =require("../models/Profile");
 const otpGenerator = require("otp-generator");
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+
 require("dotenv").config();
+
 
 
 // send otp krishan
