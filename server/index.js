@@ -4,6 +4,7 @@ const app=express();
 // get all the routes
 const userRoutes=require("./routes/User");
 const profileRoutes=require("./routes/Profile");
+// const paymentRoutes=require("./routes/Payments");
 const paymentRoutes=require("./routes/Payments");
 const courseRoutes=require("./routes/Course");
 
@@ -23,8 +24,12 @@ const PORT=process.env.PORT || 4000;
 database.connect();
 
 // middleware
-app.use(express.json());  // now i can pass json as file
+app.use(express.json());  // now i can parse json as file
+
 app.use(cookieParser());  // as middleware add
+
+//This configuration ensures your backend is accessible to your frontend running on http://localhost:3000 
+// and allows cookies or other credentials to be sent along with requests
 
 app.use(
     cors({

@@ -17,10 +17,12 @@ const User = require("../models/User");
 exports.auth = async (req, res, next) => {
     try {
         //extract token
+        console.log("befor Token Exxtraction");
         const token = req.cookies.token
             || req.body.token
-            || req.header("Authorisation").replace("Bearer ", "");
+            || req.header("Authorization").replace("Bearer ", "");
 
+            console.log("After Token Exxtraction");
         //if token missing, then return response
         if (!token) {
             return res.status(401).json({
@@ -33,7 +35,7 @@ exports.auth = async (req, res, next) => {
          try{
         
             const decode =  jwt.verify(token, process.env.JWT_SECRET);
-            console.log(decode); /// thsi decode consist the role as well  // we hve send in auth controller payload
+            console.log("decode",decode); /// thsi decode consist the role as well  // we hve send in auth controller payload
             req.user = decode; // req me jo user obj he usme decode daal do, now req ke under hi hmune apna payload daal diya he , jisme user.id bhi he
             // yaha pe auth bale middlware me , hum user ko verify krke ,user ko req ki body me daal diy he , futere me req ki body se user.id fetch kar sakte he
         }

@@ -67,3 +67,26 @@ root.render(
 //<Toaster/>
 
 // then in cartslice -> import {toast} from react-hot-toast
+
+
+// issue faced 
+/* in week 2 lect 7
+importance of localstorage:-
+after login when we do refresh , code fat gaya
+when login :-> set user in profile but when reload user become null ,it mean data was not persisiting,AS WE hadnt store it in localstorage
+,as we have store the token in localstorage , we need to store user in localstorage as well
+we will do chnages in profileslces and in operation-> authAPI , set the user in localstorage
+*/
+
+/*
+thre is no text-red things in tailwindcss
+*/
+
+/*
+issue faced in week 3 lect 3:-> when we updated the subsection , the updated subsection was not showing on UI, hum courseSet() me section ko feed kar rhe the ,hume course hi feed karna hota he
+solution :-> we were setCourse() me neccesory feeding nahi ki thi , hum data return nahi kar rhe the , , ab hum subsection edit me :-> backedn se subsection edi tkarke , section ko return karte he , jis section se hum updated course bana kar setCourse() ko feed kar sakte he
+*/
+
+/* while creating navbar ,
+issue faced , was not able to get the courses details in thee catgeory section , as  we  had not declared it in array in category modal , so we were not able to use ALLcategory.course.lneght>0 in navbar section in catalog and was getting error
+*/

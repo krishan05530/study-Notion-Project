@@ -1,9 +1,9 @@
 import { toast } from "react-hot-toast"
 
-import { setLoading } from "../../slicer/authSlice"
-import { setToken } from "../../slicer/authSlice"
-import { resetCart } from "../../slicer/cartSlice"
-import {setUser} from "../../slicer/profileSlice"
+import { setLoading } from "../../slices/authSlice"
+import { setToken } from "../../slices/authSlice"
+import { resetCart } from "../../slices/cartSlice"
+import {setUser} from "../../slices/profileSlice"
 import { apiConnector } from "../apiconnector"
 import { endpoints } from "../apis"
 
@@ -106,7 +106,11 @@ export function login(email, password, navigate) {
         ? response.data.user.image
         : `https://api.dicebear.com/5.x/initials/svg?seed=${response.data.user.firstName} ${response.data.user.lastName}`
       dispatch(setUser({ ...response.data.user, image: userImage }))
+      console.log("User Data", response.data.user)
+      // adding token and user to loclstorage
       localStorage.setItem("token", JSON.stringify(response.data.token))
+      localStorage.setItem("user", JSON.stringify(response.data.user))
+
       navigate("/dashboard/my-profile")
     } catch (error) {
       console.log("LOGIN API ERROR............", error)
@@ -155,7 +159,7 @@ export function getPasswordResetToken(email , setEmailSent) {
   }
 }
 
-export function resetPassword(password, confirmPassword, token) {
+export function resetPassword(password, confirmPassword, token,navigate) {
   return async(dispatch) => {
     dispatch(setLoading(true));
     try{
@@ -169,6 +173,7 @@ export function resetPassword(password, confirmPassword, token) {
       }
 
       toast.success("Password has been reset successfully");
+      navigate("/login")
     }
     catch(error) {
       console.log("RESET PASSWORD TOKEN Error", error);

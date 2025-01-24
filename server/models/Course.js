@@ -11,7 +11,7 @@ courseDescription:{
 },
 instructor:{
     type:mongoose.Schema.Types.ObjectId,
-    ref:"User",
+    ref:"user",
     required:true,
 },
 whatYouWillLearn:{
@@ -52,7 +52,13 @@ instructions:{
 status:{
     type:String,
     enum:["Draft","Published"],
+},
+createdAt:{
+    type:Date,
+    default:Date.now,
 }
+
+
 });
 
 module.exports=mongoose.model("Course",coursesSchema);   // export as user
@@ -61,5 +67,5 @@ module.exports=mongoose.model("Course",coursesSchema);   // export as user
 /*
 HW;
 
-
+added createdAt field to the course schema
 */

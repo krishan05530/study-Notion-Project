@@ -10,7 +10,7 @@ import { FaEye } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 export default function UpdatePassword() {
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const navigate = useNavigate()
     const location = useLocation();
     const [formData, setFormData] = useState({
         password: "",
