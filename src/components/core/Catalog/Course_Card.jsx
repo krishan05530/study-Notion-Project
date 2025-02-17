@@ -16,21 +16,26 @@ useEffect(()=>{
     <div>
       <Link to={`/courses/${course._id}`}>
         <div>
-            <div>
+        <div className="rounded-lg">
 
-                <img src={course?.thumbnail} alt="course thumbnil"
-                 className= {`${Height}  w-full rounded-xl object-cover` }/>
+                <img 
+                src={course?.thumbnail}
+                 alt="course thumbnil"
+                 className= {`${Height} w-full rounded-xl object-cover ` }/>
             </div>
-            <div>
-                <p>{course?.courseName}</p>
-             <p>{course?.instructor?.firstName} {course?.instructor?.lastName}</p>
+
+            <div className="flex flex-col gap-2 px-1 py-3">
+            <p className="text-xl text-richblack-5">
+                  {course?.courseName}</p>
+                  <p className="text-sm text-richblack-50">
+              {course?.instructor?.firstName} {course?.instructor?.lastName}</p>
              
-                <div className='flex gap-x-3'>
-                    <span>{avgReviewCount || 0}</span>
+              <div className="flex items-center gap-2">
+              <span className="text-yellow-5">{avgReviewCount || 0}</span>
                     <RatingStars Review_Count={avgReviewCount} />
-                    <span>{course?.ratingAndReviews?.length} Ratings</span>
+                    <span className="text-richblack-400">{course?.ratingAndReviews?.length} Ratings</span>
                 </div>
-                <p>{course?.price}</p>
+                <p className="text-xl text-richblack-5">{course?.price}</p>
             </div>
         </div>
       </Link>

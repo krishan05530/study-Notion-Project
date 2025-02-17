@@ -23,6 +23,7 @@ const Catalog = () => {
         const getCategories = async () => {
             try {
                 const res = await apiConnector("GET", categories.CATEGORIES_API);
+                console.log("res:", res);
                 const category = res?.data?.data?.find((ct) =>
                     ct.name.split(" ").join("-").toLowerCase() === catalogName
                 );

@@ -24,7 +24,9 @@ import MyCourses from "./components/core/Dashboard/MyCourses";
 import EditCourse from "./components/core/Dashboard/EditCourse";
 import Catalog from "./pages/Catalog";
 import CourseDetails from "./pages/CourseDetails";
-
+import ViewCourse from "./pages/ViewCourse";
+import VideoDetails from "./components/core/ViewCourse/VideoDetails";
+import Instructor from "./components/core/Dashboard/InstructorDashboard/Instructor";
 function App() {
   const { user } = useSelector((state) => state.profile)
   return (
@@ -34,9 +36,9 @@ function App() {
         <Route path="/" element={<Home />} />
         {/* <Route path="catalog/:catalogName" element={<Catalog />} />
         <Route path="courses/:courseId" element={<CourseDetails />} /> */}
-        
-        <Route path="catalog/:catalogName" element={<Catalog/>} />
-        <Route path="courses/:courseId" element={<CourseDetails/>} />
+
+        <Route path="catalog/:catalogName" element={<Catalog />} />
+        <Route path="courses/:courseId" element={<CourseDetails />} />
 
         {/* open route mean , all the non logged in user can acess this */}
 
@@ -74,25 +76,23 @@ function App() {
 
 
         <Route path="about"
-          element={<OpenRoute>
+          element={
+
             <About />
-          </OpenRoute>} />
+          } />
 
         <Route path="/contact" element={<Contact />} />
 
         {/*  this route has nested route */}
         <Route
-          // element={
-          //   <PrivateRoute>
-          //   <Dashboard/>
-          //   </PrivateRoute>
-          // }
+
 
           element={<PrivateRoute>
             <Dashboard />
           </PrivateRoute>}
         >
           <Route path="dashboard/my-profile" element={<MyProfile />} />
+  
           <Route path="dashboard/settings" element={<Setting />} />
 
 
@@ -100,7 +100,9 @@ function App() {
             user?.accountType === ACCOUNT_TYPE.STUDENT && (
               <>
                 <Route path="dashboard/enrolled-courses" element={<EnrolledCourses />} />
-                <Route path="dashboard/cart" element={<Cart />} />
+                <Route path="dashboard/cart" element={<Cart />}
+
+                />
               </>
 
             )
@@ -109,6 +111,8 @@ function App() {
           {
             user?.accountType === ACCOUNT_TYPE.INSTRUCTOR && (
               <>
+                {/* <Route path="dashboard/instructor" element={<Instructor />} /> */}
+                <Route path="dashboard/instructor" element={<Instructor />} />
                 <Route path="dashboard/add-course" element={<AddCourse />} />
                 <Route path="dashboard/my-courses" element={<MyCourses />} />
                 <Route path="dashboard/edit-course/:courseId" element={<EditCourse />} />
@@ -122,10 +126,31 @@ function App() {
 
 
 
+
+
+        <Route
+          element={
+            <PrivateRoute>
+              <ViewCourse />
+            </PrivateRoute>}
+        >
+          {
+            user?.accountType === ACCOUNT_TYPE.STUDENT && (
+              <>
+                <Route
+                  // path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                  path="view-course/:courseId/section/:sectionId/sub-section/:subSectionId"
+                  element={<VideoDetails />}
+                />
+              </>
+            )
+          }
+        </Route>
+
         <Route path="*" element={<Error />} />
 
       </Routes>
-    </div>
+    </div >
   );
 }
 
