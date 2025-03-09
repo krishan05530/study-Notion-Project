@@ -98,7 +98,7 @@ import { Autoplay } from 'swiper/modules';
 import { FreeMode } from 'swiper/modules';
 import {Navigation}  from 'swiper'
 import ReactStars from "react-rating-stars-component"
-import { apiConnector } from '../../services/apiconnector'
+import { apiConnector } from '../../services/apiConnector'
 import { ratingsEndpoints } from '../../services/apis'
 import { FaStar } from 'react-icons/fa'
 

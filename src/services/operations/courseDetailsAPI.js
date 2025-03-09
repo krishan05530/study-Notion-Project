@@ -399,7 +399,7 @@ import { toast } from "react-hot-toast"
 
 import { updateCompletedLectures } from "../../slices/viewCourseSlice"
 // import { setLoading } from "../../slices/profileSlice";
-import { apiConnector } from "../apiconnector"
+import { apiConnector } from "../apiConnector"
 import { courseEndpoints } from "../apis"
 
 const {
