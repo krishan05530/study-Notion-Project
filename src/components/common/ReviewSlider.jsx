@@ -118,12 +118,15 @@ const ReviewSlider = () => {
                 setReviews(data?.data);
             }
 
-            console.log("Printing Reviews", reviews);
+            // console.log("Printing Reviews", reviews);
 
         }
         fetchAllReviews();
     }, []);
 
+    useEffect(() => {
+        console.log("Updated Reviews State:", reviews);
+    }, [reviews]);  
 
   return (
     <div className='text-white'>
