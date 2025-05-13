@@ -31,7 +31,6 @@
 
 
 import IconBtn from "./IconBtn"
-
 export default function ConfirmationModal({ modalData }) {
   return (
     <div className="fixed inset-0 z-[1000] !mt-0 grid place-items-center overflow-auto bg-white bg-opacity-10 backdrop-blur-sm">
