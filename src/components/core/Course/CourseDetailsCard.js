@@ -27,7 +27,7 @@ function CourseDetailsCard({ course, setConfirmationModal, handleBuyCourse }) {
 
 // if valid user but its instructor
     const handleAddToCart = () => {
-       if(user && user?.accountType==ACCOUNT_TYPE.INSTRUCTOR)
+       if(user && user?.accountType===ACCOUNT_TYPE.INSTRUCTOR)
        {
         toast.error("Instructor can't buy course");
        }
