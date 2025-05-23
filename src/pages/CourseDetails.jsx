@@ -12,8 +12,6 @@ import { formatDate } from '../services/formatDate'
 import CourseDetailsCard from '../components/core/Course/CourseDetailsCard'
 
 
-
-
 const CourseDetails = () => {
   const { user } = useSelector((state) => state.profile);
   const { token } = useSelector((state) => state.auth);

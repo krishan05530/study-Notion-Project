@@ -31,8 +31,8 @@ const navigate = useNavigate()
 
     const handleCoursePublish = async () => {
         // if course is public and its status doesnt chnages 
-        if (course?.status === COURSE_STATUS.PUBLISHED && getValues("public") === true ||
-            course?.status === COURSE_STATUS.DRAFT && getValues("public") === false) {
+        if ( (course?.status === COURSE_STATUS.PUBLISHED && getValues("public") === true) ||
+            (course?.status === COURSE_STATUS.DRAFT && getValues("public") === false)) {
             // no updateion in form
             // no need to make api call
             goToCourses();
