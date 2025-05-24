@@ -89,6 +89,8 @@
 
 
 import React, { useEffect, useState } from 'react'
+// import { Pagination, Autoplay, FreeMode, Navigation } from 'swiper/modules';
+
 import { Pagination } from 'swiper/modules';
 import {Swiper, SwiperSlide} from "swiper/react"
 import "swiper/css"

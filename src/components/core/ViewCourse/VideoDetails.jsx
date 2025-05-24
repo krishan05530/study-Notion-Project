@@ -198,18 +198,18 @@ const VideoDetails = () => {
                                     />
                                 )
                             }
-
-                    <IconBtn
-                      disabled={loading}
-                      onclick={() => {
-                        if (playerRef?.current) {
-                          playerRef.current?.seek(0);
-                          setVideoEnded(false);
-                        }
-                      }}
-                      text="Rewatch"
-                      customClasses="text-xl"
-                    />
+ {/* <IconBtn
+                disabled={loading}
+                onclick={() => {
+                  if (playerRef?.current) {
+                    // set the current time of the video to 0
+                    playerRef?.current?.seek(0)
+                    setVideoEnded(false)
+                  }
+                }}
+                text="Rewatch"
+                customClasses="text-xl max-w-max px-4 mx-auto mt-2"
+              /> */}
 
 
 
