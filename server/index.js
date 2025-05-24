@@ -20,6 +20,12 @@ dotenv.config();
 
 const PORT=process.env.PORT || 4000;
 
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://study-notion-project-zeta.vercel.app"
+];
+
 // databse connect
 database.connect();
 
@@ -32,11 +38,31 @@ app.use(cookieParser());  // as middleware add
 // and allows cookies or other credentials to be sent along with requests
 
 app.use(
-    cors({
-        origin:"http://localhost:3000" ,
-        credentials: true,
-    })
+    // cors({
+    //     origin:"http://localhost:3000" ,
+    //     credentials: true,
+    // })
+
+
+
+     cors({
+    origin: function(origin, callback) {
+      // allow requests with no origin (like curl or Postman)
+      if (!origin) return callback(null, true);
+
+      if (allowedOrigins.indexOf(origin) === -1) {
+        const msg = "The CORS policy for this site does not allow access from the specified Origin.";
+        return callback(new Error(msg), false);
+      }
+
+      return callback(null, true);
+    },
+    credentials: true,
+  })
 )
+
+
+
 
 // fileupload bala middlewaare
 app.use(
